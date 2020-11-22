@@ -4,11 +4,28 @@
         <name>Mego.WebClient</name>
     </assembly>
     <members>
-        <member name="M:Mego.WebClient.Controllers.ReportController.GetAllGroups">
+        <member name="M:Mego.WebClient.Controllers.ReportController.GetAllGroupsAsync">
             <summary>
             Get all reports
             </summary>
             <returns>List of reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.AddReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Add new report
+            </summary>
+            <returns>Added report reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.UpdateReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Add new report
+            </summary>
+            <returns>Added report reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.UpdateReportAsync(System.Int32)">
+            <summary>
+            Remove report
+            </summary>
         </member>
         <member name="T:Mego.WebClient.Extension.SwaggerExtension">
             <summary>
