@@ -4,12 +4,6 @@
         <name>Mego.WebClient</name>
     </assembly>
     <members>
-        <member name="M:Mego.WebClient.Controllers.HomeController.GetAllFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
-            <summary>
-            Download report
-            </summary>
-            <returns>List of reports in date range</returns>
-        </member>
         <member name="M:Mego.WebClient.Controllers.ReportController.GetAllFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
             <summary>
             Get all reports filtered by time
