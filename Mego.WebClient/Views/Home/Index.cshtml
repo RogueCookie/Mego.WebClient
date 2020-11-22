@@ -1,8 +1,50 @@
-﻿@{
+﻿@model Mego.WebClient.Models.Request.FilterRequest
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Mego</h1>
+    <p>Play with me <a href="https://github.com/RogueCookie">Made by WoMaN</a>.</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Optional restriction for data in report for download:</legend>
+
+            <div class="editor-field">
+                <label>Start date:</label><br />
+                @Html.EditorFor(model => model.DateFrom)
+            </div>
+
+            <div class="editor-label">
+                <label>End date:</label><br />
+                @Html.EditorFor(model => model.DateTo)
+            </div>
+            <br />
+            <p>
+                <br /><input type="submit" value="Download" />
+            </p>
+        </fieldset>
+    }
+
+    <h2>Good job,girl!!</h2>
 </div>
+
+
+@section Scripts {
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#PostTime").datepicker({
+                showOn: 'both',
+                dateFormat: 'dd/mm/yy',
+                buttonImage: "/content/img/calendar_icon.png"
+            });
+        });
+    </script>
+}

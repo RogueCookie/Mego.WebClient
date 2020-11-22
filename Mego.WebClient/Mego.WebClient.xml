@@ -4,11 +4,17 @@
         <name>Mego.WebClient</name>
     </assembly>
     <members>
+        <member name="M:Mego.WebClient.Controllers.HomeController.GetAllFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Download report
+            </summary>
+            <returns>List of reports in date range</returns>
+        </member>
         <member name="M:Mego.WebClient.Controllers.ReportController.GetAllFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
             <summary>
-            Get all reports
+            Get all reports filtered by time
             </summary>
-            <returns>List of reports</returns>
+            <returns>List of reports in date range</returns>
         </member>
         <member name="M:Mego.WebClient.Controllers.ReportController.GetAllReportAsync">
             <summary>
@@ -51,16 +57,6 @@
         <member name="T:Mego.WebClient.Models.Request.FilterRequest">
             <summary>
             Date range for filtering data
-            </summary>
-        </member>
-        <member name="P:Mego.WebClient.Models.Request.FilterRequest.DateFrom">
-            <summary>
-            Start date of range
-            </summary>
-        </member>
-        <member name="P:Mego.WebClient.Models.Request.FilterRequest.DateTo">
-            <summary>
-            End date in range
             </summary>
         </member>
     </members>
