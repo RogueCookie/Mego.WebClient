@@ -53,6 +53,31 @@
             Id of record
             </summary>
         </member>
+        <member name="T:Mego.Database.Models.Exception.ItemNotFoundException">
+            <summary>
+            Not found exception for business logic. Status code 404 NotFound
+            </summary>
+        </member>
+        <member name="T:Mego.Database.Models.Exception.MegoErrorResponse">
+            <summary>
+            Model which represent error from custom error handler 
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.Exception.MegoErrorResponse.Type">
+            <summary>
+            Type or custom error which occurred
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.Exception.MegoErrorResponse.Message">
+            <summary>
+            Our custom error message for response
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.Exception.MegoErrorResponse.StatusCode">
+            <summary>
+            Status code of particular error
+            </summary>
+        </member>
         <member name="T:Mego.Database.Models.Report">
             <summary>
             Holds data about order
