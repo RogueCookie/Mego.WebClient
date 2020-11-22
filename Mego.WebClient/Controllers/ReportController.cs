@@ -1,12 +1,11 @@
 ﻿using Mego.Database.Abstraction;
 using Mego.Database.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Mego.WebClient.Models.Request;
-using Microsoft.AspNetCore.Http;
 
 namespace Mego.WebClient.Controllers
 {
@@ -24,15 +23,14 @@ namespace Mego.WebClient.Controllers
 
 
         /// <summary>
-        /// Get all reports
+        /// Get all reports filtered by time
         /// </summary>
-        /// <returns>List of reports</returns>
+        /// <returns>List of reports in date range</returns>
         [HttpGet("GetFilteredReports")]
         [ProducesResponseType(typeof(IList<Report>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IList<Report>>> GetAllFilteredReportsAsync(FilterRequest model)
+        public async Task<ActionResult<IList<Report>>> GetAllFilteredReportsAsync([FromQuery] DateTime? from, [FromQuery] DateTime? till) // 2018.10.27 format for swagger
         {
-            if (model == null) throw new ArgumentNullException(nameof(model));
-            var reports = await _reportService.GetFilteredReportsAsync(model.DateFrom, model.DateTo);
+            var reports = await _reportService.GetFilteredReportsAsync(from, till);
             return Ok(reports);
         }
 
