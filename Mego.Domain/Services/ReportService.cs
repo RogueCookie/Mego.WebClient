@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mego.Domain.Services
 {
-    public class ReportService : IReport
+    public class ReportService : IReportService
     {
         private readonly MegoDbContext _context;
 
@@ -19,10 +19,8 @@ namespace Mego.Domain.Services
 
         /// <inheritdoc />
         public async Task<List<Report>> GetAllReportAsync()
-        {
-           var result = await _context.Reports.ToListAsync();
-           return result;
-        }
+            => await _context.Reports.ToListAsync();
+          
 
         /// <inheritdoc />
         public async Task<Report> CreateReportAsync(Report newReport)

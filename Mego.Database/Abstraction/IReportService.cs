@@ -7,7 +7,7 @@ namespace Mego.Database.Abstraction
     /// <summary>
     /// Min methods for manipulation with Report table
     /// </summary>
-    public interface IReport
+    public interface IReportService
     {
         /// <summary>
         /// Get all exist reports

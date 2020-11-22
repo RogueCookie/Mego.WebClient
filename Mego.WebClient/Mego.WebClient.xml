@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mego.WebClient</name>
+    </assembly>
+    <members>
+        <member name="M:Mego.WebClient.Controllers.ReportController.GetAllGroupsAsync">
+            <summary>
+            Get all reports
+            </summary>
+            <returns>List of reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.AddReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Add new report
+            </summary>
+            <returns>Added report reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.UpdateReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Add new report
+            </summary>
+            <returns>Added report reports</returns>
+        </member>
+        <member name="M:Mego.WebClient.Controllers.ReportController.UpdateReportAsync(System.Int32)">
+            <summary>
+            Remove report
+            </summary>
+        </member>
+        <member name="T:Mego.WebClient.Extension.SwaggerExtension">
+            <summary>
+            Swagger set up. Implementation of Swagger settings
+            </summary>
+        </member>
+        <member name="T:Mego.WebClient.Extension.SwaggerUiExtension">
+            <summary>
+            Add swagger in middleware
+            </summary>
+        </member>
+        <member name="M:Mego.WebClient.Extension.SwaggerUiExtension.RegisterSwaggerUi(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Register swagger UI and Handler for exceptions for it
+            </summary>
+        </member>
+    </members>
+</doc>
