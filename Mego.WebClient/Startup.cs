@@ -2,6 +2,7 @@ using Mego.Database;
 using Mego.Database.Abstraction;
 using Mego.Domain.Services;
 using Mego.WebClient.Extension;
+using Mego.WebClient.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ namespace Mego.WebClient
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.RegisterSwaggerUi();
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             if (env.IsDevelopment())
             {

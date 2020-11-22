@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Mego.Database.Models.Exception;
 
 namespace Mego.Domain.Services
 {
@@ -33,7 +34,7 @@ namespace Mego.Domain.Services
 
             var addedReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == newReport.Id);
 
-            if (addedReport == null) return null;//TODO
+            if (addedReport == null) throw new ItemNotFoundException($"Error occured while adding report from {newReport.OrderDate}");
             return addedReport;
         }
 
@@ -43,7 +44,7 @@ namespace Mego.Domain.Services
             if (report == null) throw new ArgumentNullException(nameof(report));
 
             var existReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == report.Id);
-            if (existReport == null) return null; //TODO
+            if (existReport == null) throw new ItemNotFoundException($"Report with id {report.Id} does not exist");
 
             existReport.OrderDate = report.OrderDate;
             existReport.SummaryPrice = report.SummaryPrice;
@@ -51,7 +52,7 @@ namespace Mego.Domain.Services
             var updatedEntity = _context.Reports.Update(existReport).Entity;
             await _context.SaveChangesAsync();
 
-            if (updatedEntity == null) return null; //TODO
+            if (updatedEntity == null) throw new ItemNotFoundException($"Could not update report with id {report.Id}");
             return updatedEntity;
         }
 
@@ -59,7 +60,7 @@ namespace Mego.Domain.Services
         public async Task RemoveReportByIdAsync(int recordId)
         {
             var existReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == recordId);
-            //if (existReport == null)  //TODO
+            if (existReport == null) throw new ItemNotFoundException($"Report with id {recordId} does not exist");
 
             _context.Reports.Remove(existReport);
             await _context.SaveChangesAsync();

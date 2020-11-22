@@ -48,6 +48,33 @@
             Register swagger UI and Handler for exceptions for it
             </summary>
         </member>
+        <member name="T:Mego.WebClient.Middleware.ErrorHandlerMiddleware">
+            <summary>
+            This layer intercepts and processes all errors 
+            </summary>
+        </member>
+        <member name="M:Mego.WebClient.Middleware.ErrorHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            The constructor of this class by convention receives a delegate request 
+            </summary>
+        </member>
+        <member name="M:Mego.WebClient.Middleware.ErrorHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Microsoft.Extensions.Logging.ILogger{Mego.WebClient.Middleware.ErrorHandlerMiddleware})">
+            <summary>
+            By convention, for a given middleware, there is invoke method that takes a context and whatever from DI
+            </summary>
+            <param name="context"></param>
+            <param name="logger">Log message from some service</param>
+            <returns>Specific error type with message</returns>
+        </member>
+        <member name="M:Mego.WebClient.Middleware.ErrorHandlerMiddleware.HandleException(Microsoft.AspNetCore.Http.HttpContext,System.Exception,Microsoft.Extensions.Logging.ILogger{Mego.WebClient.Middleware.ErrorHandlerMiddleware})">
+            <summary>
+            Compare what kind of exception we have and build response we are interesting in
+            </summary>
+            <param name="context"></param>
+            <param name="exception">Exception which occurred</param>
+            <param name="logger">Log message from service</param>
+            <returns>Particular error with log message</returns>
+        </member>
         <member name="T:Mego.WebClient.Models.Request.FilterRequest">
             <summary>
             Date range for filtering data
