@@ -27,11 +27,12 @@ namespace Mego.Database.Abstraction
         /// </summary>
         /// <param name="report">Model with new data</param>
         /// <returns>Updated report entity</returns>
-        Task<Report> UpdateReport(Report report);
+        Task<Report> UpdateReportAsync(Report report);
 
         /// <summary>
-        /// Remove record with particular Id
+        /// Remove report with particular Id
         /// </summary>
-        Task RemoveReportByIdAsync();
+        /// <param name="id">Id of record for being deleted</param>
+        Task RemoveReportByIdAsync(int id);
     }
 }

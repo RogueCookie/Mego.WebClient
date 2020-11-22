@@ -1,4 +1,6 @@
 using Mego.Database;
+using Mego.Database.Abstraction;
+using Mego.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,8 @@ namespace Mego.WebClient
 
             var connection = Configuration.GetConnectionString("DataBaseConnectionString");
             services.AddDbContext<MegoDbContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IReport, ReportService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Mego.Database;
+﻿using Mego.Database;
 using Mego.Database.Abstraction;
 using Mego.Database.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Mego.Domain.Services
 {
@@ -16,24 +17,53 @@ namespace Mego.Domain.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public Task<List<Report>> GetAllReportAsync()
+        /// <inheritdoc />
+        public async Task<List<Report>> GetAllReportAsync()
         {
-            throw new NotImplementedException();
+           var result = await _context.Reports.ToListAsync();
+           return result;
         }
 
-        public Task<Report> CreateReportAsync(Report newReport)
+        /// <inheritdoc />
+        public async Task<Report> CreateReportAsync(Report newReport)
         {
-            throw new NotImplementedException();
+            if (newReport == null) throw new ArgumentNullException(nameof(newReport));
+           
+            await _context.Reports.AddAsync(newReport);
+            await _context.SaveChangesAsync();
+           
+            var addedReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == newReport.Id);
+            
+            if (addedReport == null) return null;//TODO
+            return addedReport;
         }
 
-        public Task<Report> UpdateReport(Report report)
+        /// <inheritdoc />
+        public async Task<Report> UpdateReportAsync(Report report)
         {
-            throw new NotImplementedException();
+            if (report == null) throw new ArgumentNullException(nameof(report));
+            
+            var existReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == report.Id);
+            if (existReport == null) return null; //TODO
+
+            existReport.OrderDate = report.OrderDate;
+            existReport.SummaryPrice = report.SummaryPrice;
+
+            var updatedEntity =_context.Reports.Update(existReport).Entity;
+            await _context.SaveChangesAsync();
+
+            if (updatedEntity == null) return null; //TODO
+            return updatedEntity;
         }
 
-        public Task RemoveReportByIdAsync()
+        /// <inheritdoc />
+        public async Task RemoveReportByIdAsync(int recordId)
         {
-            throw new NotImplementedException();
+            var existReport = await _context.Reports.FirstOrDefaultAsync(x => x.Id == recordId);
+            //if (existReport == null)  //TODO
+
+            _context.Reports.Remove(existReport);
+            await _context.SaveChangesAsync();
         }
     }
 }
