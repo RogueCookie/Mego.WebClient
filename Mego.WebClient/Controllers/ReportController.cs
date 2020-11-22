@@ -21,7 +21,6 @@ namespace Mego.WebClient.Controllers
             _reportService = reportService ?? throw new ArgumentNullException(nameof(reportService));
         }
 
-
         /// <summary>
         /// Get all reports filtered by time
         /// </summary>
@@ -33,8 +32,6 @@ namespace Mego.WebClient.Controllers
             var reports = await _reportService.GetFilteredReportsAsync(from, till);
             return Ok(reports);
         }
-
-
 
         /// <summary>
         /// Get all reports
