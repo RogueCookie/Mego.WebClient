@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Mego.WebClient.Models.Request;
 using Microsoft.AspNetCore.Http;
 
 namespace Mego.WebClient.Controllers
@@ -21,13 +22,29 @@ namespace Mego.WebClient.Controllers
             _reportService = reportService ?? throw new ArgumentNullException(nameof(reportService));
         }
 
+
+        /// <summary>
+        /// Get all reports
+        /// </summary>
+        /// <returns>List of reports</returns>
+        [HttpGet("GetFilteredReports")]
+        [ProducesResponseType(typeof(IList<Report>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IList<Report>>> GetAllFilteredReportsAsync(FilterRequest model)
+        {
+            if (model == null) throw new ArgumentNullException(nameof(model));
+            var reports = await _reportService.GetFilteredReportsAsync(model.DateFrom, model.DateTo);
+            return Ok(reports);
+        }
+
+
+
         /// <summary>
         /// Get all reports
         /// </summary>
         /// <returns>List of reports</returns>
         [HttpGet("GetAllReports")]
         [ProducesResponseType(typeof(IList<Report>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IList<Report>>> GetAllGroupsAsync()
+        public async Task<ActionResult<IList<Report>>> GetAllReportAsync()
         {
             var reports = await _reportService.GetAllReportAsync();
             return Ok(reports);

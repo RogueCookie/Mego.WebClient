@@ -3,6 +3,7 @@ using Mego.Database.Models;
 using Mego.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -105,6 +106,68 @@ namespace Mego.XUnitTest.Services
             Assert.Null(report);
         }
 
+
+        [Fact]
+        public async Task GetFilteredReportsAsync_WhenStartAndEndDateExist_ReportInTimeRangeExpected()
+        {
+            // Arrange
+            var startDate = new DateTime(2020,11,17);
+            var endDate = new DateTime(2020,11,22);
+
+            // Act
+            var result = await _reportService.GetFilteredReportsAsync(startDate, endDate);
+
+            // Assert
+            Assert.True(result.Count ==2);
+        }
+
+        [Fact]
+        public async Task GetFilteredReportsAsync_WhenStartDateNull_ReportInTimeRangeExpected()
+        {
+            // Arrange
+            var endDate = new DateTime(2020, 11, 22);
+
+            // Act
+            var result = await _reportService.GetFilteredReportsAsync(null, endDate);
+
+            // Assert
+            Assert.True(result.Count == 3);
+
+            foreach (var report in result)
+            {
+                Assert.True(report.OrderDate <= endDate);
+            }
+        }
+
+        [Fact]
+        public async Task GetFilteredReportsAsync_WhenEndDateNull_ReportInTimeRangeExpected()
+        {
+            // Arrange
+            var startDate = new DateTime(2020, 11, 17);
+
+            // Act
+            var result = await _reportService.GetFilteredReportsAsync(startDate, null);
+
+            // Assert
+            Assert.True(result.Count == 3);
+
+            foreach (var report in result)
+            {
+                Assert.True(report.OrderDate >= startDate);
+            }
+        }
+
+        [Fact]
+        public async Task GetFilteredReportsAsync_WhenBothNull_GetAllExpected()
+        {
+            // Arrange
+
+            // Act
+            var result = await _reportService.GetFilteredReportsAsync(null, null);
+
+            // Assert
+            Assert.True(result.Count == 4);
+        }
 
         /// <summary>
         /// Init record for manipulation in tests
