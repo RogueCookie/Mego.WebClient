@@ -6,7 +6,7 @@
     <members>
         <member name="T:Mego.Database.Abstraction.IReportService">
             <summary>
-            Min methods for manipulation with Report table
+            Main methods for manipulation with Report table
             </summary>
         </member>
         <member name="M:Mego.Database.Abstraction.IReportService.GetAllReportAsync">
@@ -34,6 +34,14 @@
             Remove report with particular Id
             </summary>
             <param name="id">Id of record for being deleted</param>
+        </member>
+        <member name="M:Mego.Database.Abstraction.IReportService.GetFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get all reports filtered by date
+            </summary>
+            <param name="dateFrom">Start date for filtering</param>
+            <param name="dateTo">End date for filtering</param>
+            <returns>List of reports filtered by date</returns>
         </member>
         <member name="T:Mego.Database.Models.BaseModel">
             <summary>

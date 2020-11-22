@@ -1,11 +1,12 @@
 ﻿using Mego.Database.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Mego.Database.Abstraction
 {
     /// <summary>
-    /// Min methods for manipulation with Report table
+    /// Main methods for manipulation with Report table
     /// </summary>
     public interface IReportService
     {
@@ -34,5 +35,13 @@ namespace Mego.Database.Abstraction
         /// </summary>
         /// <param name="id">Id of record for being deleted</param>
         Task RemoveReportByIdAsync(int id);
+
+        /// <summary>
+        /// Get all reports filtered by date
+        /// </summary>
+        /// <param name="dateFrom">Start date for filtering</param>
+        /// <param name="dateTo">End date for filtering</param>
+        /// <returns>List of reports filtered by date</returns>
+        Task <List<Report>> GetFilteredReportsAsync(DateTime? dateFrom, DateTime? dateTo);
     }
 }

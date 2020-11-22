@@ -16,5 +16,8 @@
         <member name="M:Mego.Domain.Services.ReportService.RemoveReportByIdAsync(System.Int32)">
             <inheritdoc />
         </member>
+        <member name="M:Mego.Domain.Services.ReportService.GetFilteredReportsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
