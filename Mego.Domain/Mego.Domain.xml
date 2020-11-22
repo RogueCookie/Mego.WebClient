@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mego.Domain</name>
+    </assembly>
+    <members>
+        <member name="M:Mego.Domain.Services.ReportService.GetAllReportAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Mego.Domain.Services.ReportService.CreateReportAsync(Mego.Database.Models.Report)">
+            <inheritdoc />
+        </member>
+        <member name="M:Mego.Domain.Services.ReportService.UpdateReportAsync(Mego.Database.Models.Report)">
+            <inheritdoc />
+        </member>
+        <member name="M:Mego.Domain.Services.ReportService.RemoveReportByIdAsync(System.Int32)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

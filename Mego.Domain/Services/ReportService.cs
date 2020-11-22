@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mego.Domain.Services
 {
-    public class ReportService : IReport
+    public class ReportService : IReportService
     {
         private readonly MegoDbContext _context;
 

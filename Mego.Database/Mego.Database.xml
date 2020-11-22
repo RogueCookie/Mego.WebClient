@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mego.Database</name>
+    </assembly>
+    <members>
+        <member name="T:Mego.Database.Abstraction.IReportService">
+            <summary>
+            Min methods for manipulation with Report table
+            </summary>
+        </member>
+        <member name="M:Mego.Database.Abstraction.IReportService.GetAllReportAsync">
+            <summary>
+            Get all exist reports
+            </summary>
+            <returns>List of reports</returns>
+        </member>
+        <member name="M:Mego.Database.Abstraction.IReportService.CreateReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Add new report
+            </summary>
+            <param name="newReport">Report which need to add to table</param>
+            <returns>Report which was add in Db</returns>
+        </member>
+        <member name="M:Mego.Database.Abstraction.IReportService.UpdateReportAsync(Mego.Database.Models.Report)">
+            <summary>
+            Update report
+            </summary>
+            <param name="report">Model with new data</param>
+            <returns>Updated report entity</returns>
+        </member>
+        <member name="M:Mego.Database.Abstraction.IReportService.RemoveReportByIdAsync(System.Int32)">
+            <summary>
+            Remove report with particular Id
+            </summary>
+            <param name="id">Id of record for being deleted</param>
+        </member>
+        <member name="T:Mego.Database.Models.BaseModel">
+            <summary>
+            Base model for multiple use
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.BaseModel.Id">
+            <summary>
+            Id of record
+            </summary>
+        </member>
+        <member name="T:Mego.Database.Models.Report">
+            <summary>
+            Holds data about order
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.Report.SummaryPrice">
+            <summary>
+            Order price
+            </summary>
+        </member>
+        <member name="P:Mego.Database.Models.Report.OrderDate">
+            <summary>
+            Date of ordering
+            </summary>
+        </member>
+    </members>
+</doc>
