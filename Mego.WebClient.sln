@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mego.WebClient", "Mego.WebClient\Mego.WebClient.csproj", "{F2F51C72-E5FA-46E6-A0BC-DAF073C06579}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mego.Database", "Mego.Database\Mego.Database.csproj", "{CBECBF50-D8F1-4DBE-BB18-86B1DEFCFDCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mego.XUnitTest", "Mego.XUnitTest\Mego.XUnitTest.csproj", "{12526E1E-4178-4AD3-87BA-6EA6E69B2C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mego.Domain", "Mego.Domain\Mego.Domain.csproj", "{B8771EC3-549E-460A-A465-71A3DFE3C036}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{F2F51C72-E5FA-46E6-A0BC-DAF073C06579}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F51C72-E5FA-46E6-A0BC-DAF073C06579}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F51C72-E5FA-46E6-A0BC-DAF073C06579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBECBF50-D8F1-4DBE-BB18-86B1DEFCFDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBECBF50-D8F1-4DBE-BB18-86B1DEFCFDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBECBF50-D8F1-4DBE-BB18-86B1DEFCFDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBECBF50-D8F1-4DBE-BB18-86B1DEFCFDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12526E1E-4178-4AD3-87BA-6EA6E69B2C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12526E1E-4178-4AD3-87BA-6EA6E69B2C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12526E1E-4178-4AD3-87BA-6EA6E69B2C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12526E1E-4178-4AD3-87BA-6EA6E69B2C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8771EC3-549E-460A-A465-71A3DFE3C036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8771EC3-549E-460A-A465-71A3DFE3C036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8771EC3-549E-460A-A465-71A3DFE3C036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8771EC3-549E-460A-A465-71A3DFE3C036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
