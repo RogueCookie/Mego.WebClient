@@ -4,4 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mego.Database\Mego.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extentions\" />
+  </ItemGroup>
+
 </Project>
